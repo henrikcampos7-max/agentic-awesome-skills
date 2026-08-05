@@ -1,0 +1,1 @@
+"""\nConftest.py - Configurações compartilhadas para testes\n\"\"\"\n\nimport sys\nfrom pathlib import Path\n\n# Adicionar src ao path para imports\nsys.path.insert(0, str(Path(__file__).parent.parent))\n
