@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QInputDialog, QMessageBox
+from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QMessageBox
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QFont
 from datetime import datetime
@@ -7,6 +7,7 @@ from src.adapters.simulator import SimulatedSolusAdapter
 from src.ui.widgets.dashboard import DashboardPanel
 from src.ui.widgets.table import GuidesTable
 from src.ui.widgets.filters import FiltersPanel
+from src.ui.widgets.dialogs import NovaGuiaDialog, HistoricoDialog
 from src.ui.styles.stylesheet import STYLESHEET
 
 class MainWindow(QMainWindow):
@@ -166,13 +167,28 @@ class MainWindow(QMainWindow):
         QMessageBox.information(self, "Sucesso", "Guias sincronizadas com sucesso!")
     
     def add_new_guide(self):
-        """Adiciona nova guia"""
-        numero, ok = QInputDialog.getText(self, "Nova Guia", "Número da Guia:")
-        if ok and numero:
-            paciente, ok2 = QInputDialog.getText(self, "Nova Guia", "Nome do Paciente:")
-            if ok2 and paciente:
-                if self.db.add_guide(numero, paciente):
-                    self.refresh_table()
-                    QMessageBox.information(self, "Sucesso", "Guia adicionada com sucesso!")
-                else:
-                    QMessageBox.warning(self, "Erro", "Número de guia já existe!")
+        """Abre o dialog de Nova Guia e salva no banco se confirmado."""
+        dialog = NovaGuiaDialog(self)
+        dialog.guia_adicionada.connect(self._salvar_nova_guia)
+        dialog.exec()
+
+    def _salvar_nova_guia(self, numero: str, paciente: str, status: str):
+        """Callback do sinal guia_adicionada — persiste no banco."""
+        if self.db.add_guide(numero, paciente, status):
+            self.refresh_table()
+            QMessageBox.information(self, "Sucesso", f"Guia {numero} adicionada com sucesso!")
+        else:
+            QMessageBox.warning(self, "Erro", f"Número de guia '{numero}' já existe no sistema!")
+
+    def show_historico(self, guide: dict):
+        """Abre o dialog de Histórico / Ciência para a guia informada."""
+        historico = self.db.get_history(guide.get("id", -1))
+        dialog = HistoricoDialog(guide, historico, self)
+        dialog.marcar_ciente.connect(self._marcar_guia_ciente)
+        dialog.exec()
+
+    def _marcar_guia_ciente(self, guide_id: int, observacoes: str):
+        """Callback do sinal marcar_ciente — atualiza ciência no banco."""
+        self.db.mark_as_aware(guide_id)
+        self.refresh_table()
+        QMessageBox.information(self, "Ciência registrada", "Ciência da guia registrada com sucesso!")
