@@ -8,32 +8,39 @@ from src.ui.widgets.dashboard import DashboardPanel
 from src.ui.widgets.table import GuidesTable
 from src.ui.widgets.filters import FiltersPanel
 from src.ui.widgets.dialogs import NovaGuiaDialog, HistoricoDialog
+from src.ui.configuracoes import ConfiguracoesDialog
 from src.ui.styles.stylesheet import STYLESHEET
+
+VERSAO = "1.1.0"
 
 class MainWindow(QMainWindow):
     """Janela principal da aplicação"""
     
-    def __init__(self):
+    # T28: usuario_logado mantém o usuário ativo na sessão
+    usuario_logado: str = "henrique.campos"
+
+    def __init__(self, usuario: str = "henrique.campos"):
         super().__init__()
+        self.usuario_logado = usuario
         self.setWindowTitle("Monitor de Guias - Solus")
         self.setGeometry(100, 100, 1400, 800)
-        
+
         # Database
         self.db = Database()
-        
+
         # Adapter simulado
         self.adapter = SimulatedSolusAdapter()
-        
+
         # Inicializar dados simulados no banco
         self._load_simulated_data()
-        
+
         # UI
         self.init_ui()
-        
+
         # Timer para sincronização
         self.sync_timer = QTimer()
         self.sync_timer.timeout.connect(self.sync_guides)
-        self.sync_timer.start(60000)  # 60 segundos para demo (será 60 minutos em produção)
+        self.sync_timer.start(60000)  # 60 s para demo; produção: 60 min
     
     def init_ui(self):
         """Inicializa a interface"""
@@ -71,9 +78,11 @@ class MainWindow(QMainWindow):
         sync_btn.clicked.connect(self.sync_guides)
         header_layout.addWidget(sync_btn)
         
-        # Botão de ações
+        # Botão de configurações (T26)
         actions_btn = QPushButton("⚙️")
         actions_btn.setMaximumWidth(40)
+        actions_btn.setToolTip("Configurações")
+        actions_btn.clicked.connect(self.abrir_configuracoes)
         header_layout.addWidget(actions_btn)
         
         main_layout.addLayout(header_layout)
@@ -103,29 +112,30 @@ class MainWindow(QMainWindow):
         self.table_widget = GuidesTable()
         main_layout.addWidget(self.table_widget)
         
-        # Footer
+        # T29 — Barra de status dinâmica
         footer_layout = QHBoxLayout()
-        footer_label = QLabel("Exibindo 1 a 10 de 32 registros")
-        footer_label.setFont(QFont("Arial", 9))
-        footer_label.setStyleSheet("color: #666666;")
-        footer_layout.addWidget(footer_label)
+        sep_footer = QLabel()
+        sep_footer.setFixedHeight(1)
+        sep_footer.setStyleSheet("background: #dddddd;")
+        main_layout.addWidget(sep_footer)
+
+        self.lbl_total = QLabel("Exibindo 0 registros")
+        self.lbl_total.setFont(QFont("Arial", 9))
+        self.lbl_total.setStyleSheet("color: #666666;")
+        footer_layout.addWidget(self.lbl_total)
         footer_layout.addStretch()
-        
-        user_label = QLabel("Usuário: henrique.campos")
-        user_label.setFont(QFont("Arial", 9))
-        user_label.setStyleSheet("color: #666666;")
-        footer_layout.addWidget(user_label)
-        
-        version_label = QLabel("Versão: 1.0.0")
-        version_label.setFont(QFont("Arial", 9))
-        version_label.setStyleSheet("color: #666666;")
-        footer_layout.addWidget(version_label)
-        
-        backup_label = QLabel("Último backup: 05/08/2026 10:30")
-        backup_label.setFont(QFont("Arial", 9))
-        backup_label.setStyleSheet("color: #666666;")
-        footer_layout.addWidget(backup_label)
-        
+
+        # T28: exibe usuário logado dinamicamente
+        self.lbl_usuario_status = QLabel(f"👤 {self.usuario_logado}")
+        self.lbl_usuario_status.setFont(QFont("Arial", 9))
+        self.lbl_usuario_status.setStyleSheet("color: #444444;")
+        footer_layout.addWidget(self.lbl_usuario_status)
+
+        self.lbl_versao_status = QLabel(f"  v{VERSAO}")
+        self.lbl_versao_status.setFont(QFont("Arial", 9))
+        self.lbl_versao_status.setStyleSheet("color: #888888;")
+        footer_layout.addWidget(self.lbl_versao_status)
+
         main_layout.addLayout(footer_layout)
         
         central_widget.setLayout(main_layout)
@@ -148,12 +158,13 @@ class MainWindow(QMainWindow):
             )
     
     def refresh_table(self):
-        """Atualiza a tabela com dados do banco"""
+        """Atualiza a tabela, indicadores e barra de status."""
         guides = self.db.get_all_guides()
         self.table_widget.load_guides(guides)
-        
-        # Atualizar indicadores
         self._update_indicators(guides)
+        # T29: atualizar contador na barra de status
+        total = len(guides)
+        self.lbl_total.setText(f"Exibindo {total} registro{'s' if total != 1 else ''}")
     
     def _update_indicators(self, guides: list):
         """Atualiza os indicadores do painel"""
@@ -161,10 +172,17 @@ class MainWindow(QMainWindow):
         pass
     
     def sync_guides(self):
-        """Sincroniza guias com o Solus"""
-        self.sync_label.setText(f"Sincronização: {datetime.now().strftime('%H:%M:%S')}")
+        """Sincroniza guias com o Solus."""
+        agora = datetime.now().strftime("%H:%M:%S")
+        self.sync_label.setText(f"Sincronização: {agora}")
         self.refresh_table()
-        QMessageBox.information(self, "Sucesso", "Guias sincronizadas com sucesso!")
+        QMessageBox.information(self, "Sincronizado", f"Guias sincronizadas com sucesso!\nHorário: {agora}")
+
+    def abrir_configuracoes(self):
+        """Abre a tela de configurações (T26)."""
+        dialog = ConfiguracoesDialog(self.db, self)
+        dialog.configuracoes_salvas.connect(self.refresh_table)
+        dialog.exec()
     
     def add_new_guide(self):
         """Abre o dialog de Nova Guia e salva no banco se confirmado."""
