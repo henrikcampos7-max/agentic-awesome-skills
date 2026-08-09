@@ -12,8 +12,8 @@ import {
   House,
   MagnifyingGlass,
   Plus,
+  SquaresFour,
   SignOut,
-  Warning,
   WarningCircle,
   X,
 } from '@phosphor-icons/react';
@@ -305,7 +305,7 @@ export function GuiaDashboard(): React.ReactElement {
                     <input type="search" placeholder="Buscar guia, paciente ou ciência..." />
                   </label>
                   <button type="button" className="guide-dashboard__ghost-icon" aria-label="Alternar visualização">
-                    <Warning size={18} />
+                    <SquaresFour size={18} />
                   </button>
                 </div>
               </div>
@@ -358,7 +358,7 @@ export function GuiaDashboard(): React.ReactElement {
               </div>
 
               <footer className="guide-dashboard__table-footer">
-                <p>Exibindo 11 registros</p>
+                <p>Exibindo {guideRows.length} registros</p>
                 <div className="guide-dashboard__pagination">
                   <label>
                     <span className="sr-only">Itens por página</span>
