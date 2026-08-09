@@ -9,9 +9,144 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [15.12.0] - 2026-08-09 - "Catalog Discovery and Safer Context Skills"
+
+> Upgraded the public catalog into a practical discovery dashboard, added two focused research and planning skills, and repaired unsafe or malformed context-management guidance.
+
+This release gives Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and related AI coding assistants a more usable 2,007-skill catalog. Users can now share precise catalog searches, keep a browser-local shortlist, inspect related skills, and start from clearer catalog-health signals while the underlying skill library gains bounded people research, source-aware travel planning, and stronger warnings around destructive context-agent workflows.
+
+Start here:
+
+- Direct skill distribution: `npx agentic-awesome-skills`
+- [Choose your tool](https://github.com/sickn33/agentic-awesome-skills#choose-your-tool)
+- [Best skills by tool](https://github.com/sickn33/agentic-awesome-skills#best-skills-by-tool)
+- [Bundles](https://github.com/sickn33/agentic-awesome-skills/blob/main/docs/users/bundles.md)
+- [Workflows](https://github.com/sickn33/agentic-awesome-skills/blob/main/docs/users/workflows.md)
+
+### Added
+
+- Added [`people-data`](skills/people-data/) for authorized LinkedIn professional-profile and public business-contact research plus YouTube channel business-email discovery through the Agent Body MCP server, with an exact bundled tool contract and read-only boundaries.
+- Added [`travel-planner`](skills/travel-planner/) for budget-first itinerary planning with destination constraints, dated factual sources, explicit alternatives for out-of-scope routes, and a rule self-check table in every plan.
+- Added shareable fuzzy search and filters, keyboard-focused discovery, a browser-local shortlist with cross-tab synchronization and exact-ID export, catalog-health signals, and related-skill discovery to the hosted catalog.
+
+### Changed
+
+- Updated [`unified-ai-gateway`](skills/unified-ai-gateway/) to distinguish the current public `v0.4.3` release from the immutable `v0.4.0` security-review baseline without changing its reviewed activation or inspection boundaries.
+- Updated `react-virtuoso` to 4.18.11 in the web app and `express-rate-limit` to 8.6.0 in the bundled Loki example.
+- Regenerated the canonical catalog, offline AAS Core data, marketplaces, bundles, Agent Plugins exports, and Codex/Claude plugin distributions for 2,007 skills.
+
 ### Security
 
-- Hardened coordinated-disclosure trust boundaries across NotebookLM, YouTube ingestion, Instagram OAuth/CSV export, Telegram HTML replies, Loki task export, Vercel claim verification, macOS packaging templates, and generated TSX content.
+- Corrected `context-agent` and `context-guardian` to `risk: critical`, translated remaining guidance, and made their destructive local-write behavior and prerequisites explicit.
+- Repaired malformed executable TypeScript examples in `conversation-memory` and `context-window-management`, and removed a dangling playbook reference from `context-driven-development`.
+- Made catalog shortlist reads fail safely when browser storage is unavailable or throws, while keeping shortlist data local to the browser.
+
+### Who should care
+
+- Users who need to search, compare, shortlist, and share exact catalog views instead of browsing more than two thousand skills manually.
+- Researchers using public professional or business-contact data who need explicit authorization, read-only scope, and an exact MCP tool contract.
+- Travelers who want budget-confirmed, source-aware itineraries with visible constraint checks.
+- Maintainers and agents relying on context-management skills where destructive filesystem behavior must be unmistakable.
+
+### Validation
+
+- Passed all 109 repository test groups, 173 web-app tests, web-app lint and production build, repository validation, reference validation, documentation security checks, warning-budget enforcement, and exact-head PR evidence gates.
+- Confirmed root and web-app dependency audits report zero vulnerabilities, protected `main` CI and CodeQL are green, and canonical regeneration is idempotent.
+- Verified web-app coverage at 85.04% statements, 72.95% branches, 86.37% functions, and 89.17% lines.
+
+### Credits
+
+- **[@Jess-yaozu](https://github.com/Jess-yaozu)** and **[agentbody/skills](https://github.com/agentbody/skills)** for `people-data` in [PR #1103](https://github.com/sickn33/agentic-awesome-skills/pull/1103).
+- **[@saudademjj](https://github.com/saudademjj)** and **[saudademjj/luopan](https://github.com/saudademjj/luopan)** for `travel-planner` in [PR #1107](https://github.com/sickn33/agentic-awesome-skills/pull/1107).
+- **[@happy520ai](https://github.com/happy520ai)** for the `unified-ai-gateway` release-note refresh in [PR #1115](https://github.com/sickn33/agentic-awesome-skills/pull/1115).
+- **[@zinzied](https://github.com/zinzied)** for the original catalog-dashboard contribution in [PR #1111](https://github.com/sickn33/agentic-awesome-skills/pull/1111), repaired and integrated through [PR #1118](https://github.com/sickn33/agentic-awesome-skills/pull/1118).
+
+## [15.11.0] - 2026-08-07 - "Agent Plugin Directory Readiness"
+
+> Prepared the flagship AAS Agent & MCP Builder for the OpenAI Plugins Directory with production metadata, public policies, and a reproducible evaluation dossier.
+
+This release turns the portable Agent Plugins work from 15.10.0 into a directory-ready product surface. The flagship bundle now carries the listing metadata and assets needed by compatible clients, while the repository records the exact claims, prompts, test cases, execution evidence, and publisher-only approval boundaries required for a truthful public submission.
+
+Start here:
+
+- Flagship plugin: [`AAS Agent & MCP Builder`](plugins/agentic-bundle-aas-agent-mcp-builder/)
+- Submission dossier: [`docs/plugin-submissions/aas-agent-mcp-builder/`](docs/plugin-submissions/aas-agent-mcp-builder/)
+- Plugin guide: [`docs/users/plugins.md`](docs/users/plugins.md)
+- Privacy: [`PRIVACY.md`](PRIVACY.md)
+- Terms: [`TERMS.md`](TERMS.md)
+
+### Added
+
+- Added a version-controlled OpenAI Plugins Directory submission dossier for `AAS Agent & MCP Builder`, including public listing copy, starter prompts, six positive and four negative evaluation cases, a recorded 10/10 Codex execution pass, release notes, and explicit publisher-owned approval boundaries.
+- Added project privacy and terms documents covering skills-only plugins, the browser-local catalog and Workbench behavior, third-party services, and support channels.
+
+### Changed
+
+- Enriched generated Codex plugin manifests with public website, privacy, and terms metadata, and added production logo assets to the flagship Agent & MCP Builder package.
+
+### Who should care
+
+- Agent builders who want an installable, curated path through AAS architecture, MCP, RAG, LangGraph, evaluation, and context-management skills.
+- Compatible agent clients that surface plugin identity, artwork, website, privacy, and terms metadata.
+- Maintainers who need a reviewable boundary between repository evidence and publisher-only OpenAI platform attestations.
+
+### Validation
+
+- Executed all ten dossier cases in fresh, read-only Codex sessions: six expected activations and four expected non-activations, with 10/10 passing.
+- Validated the dossier against the generated flagship manifest, required listing fields, asset paths, starter prompts, case coverage, and recorded execution results.
+- Passed repository skill validation, reference validation, documentation security checks, warning-budget enforcement, bundle checks, plugin compatibility checks, Agent Plugin schema tests, and the Codex plugin validator across all 58 packages.
+
+## [15.10.0] - 2026-08-07 - "Portable Agent Plugins and Governed Workflows"
+
+> Added portable Agent Plugins 1.0 exports, a video-production router, consent-gated outreach, and stronger trust boundaries across the catalog.
+
+This release gives Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and related AI coding assistants a safer, more portable 2,005-skill catalog. It packages 58 eligible editorial bundles in the shared Agent Plugins format alongside the existing Codex and Claude distributions, adds reply-aware outreach with explicit approval before real sends, introduces an upstream-pinned video routing guide, and hardens web scraping against hostile page content.
+
+Start here:
+
+- AAS Core setup: configure the exact `aas` runtime with the [Core guide](https://github.com/sickn33/agentic-awesome-skills/blob/main/docs/users/aas-core.md)
+- Direct skill distribution: `npx agentic-awesome-skills`
+- [Choose your tool](https://github.com/sickn33/agentic-awesome-skills#choose-your-tool)
+- [Best skills by tool](https://github.com/sickn33/agentic-awesome-skills#best-skills-by-tool)
+- [Bundles](https://github.com/sickn33/agentic-awesome-skills/blob/main/docs/users/bundles.md)
+- [Workflows](https://github.com/sickn33/agentic-awesome-skills/blob/main/docs/users/workflows.md)
+
+### Added
+
+- Added [`outreachagent`](skills/outreachagent/) for inbox, contact, template, workflow, webhook, and delivery-metric operations through OutreachAgent's public REST API, with separate draft and final-send approvals, exact rendered-payload review, reply-aware exits, and untrusted-inbound handling.
+- Added [`video-router`](skills/video-router/) from the official OrkasVideoStudio source for locking generation, deterministic composition, supplied-footage editing, or an automatic cross-modal production plan before execution, with explicit runtime and produced-vs-planned boundaries.
+
+### Changed
+
+- Added Agent Plugins 1.0 as a portable packaging target for eligible editorial bundles, with schema-pinned root manifests, collision-safe flattened skill IDs, Agent Skills-compatible packaged frontmatter, and preserved AAS provenance and risk metadata. Broad host-specific roots remain on their existing Codex and Claude surfaces rather than making a false portability claim.
+- Regenerated the canonical catalog, offline AAS Core data, marketplaces, bundles, Agent Plugins exports, and Codex/Claude plugin distributions for 2,005 skills.
+
+### Security
+
+- Hardened [`web-scraper`](skills/web-scraper/) against prompt injection from page content, constrained downloads to an exact user-confirmed output path, required consent before browser escalation, and clarified stop conditions for authenticated or sensitive pages.
+- Hardened coordinated-disclosure trust boundaries across NotebookLM, YouTube ingestion, Instagram OAuth and CSV export, Telegram HTML replies, Loki task export, Vercel claim verification, macOS packaging templates, and generated TSX content.
+- Added focused regression coverage for path containment, private temporary storage, inert rendering, OAuth callback binding, data-only version parsing, and untrusted browser or model output.
+
+### Who should care
+
+- Agent clients and plugin authors adopting the shared Agent Plugins format across compatible hosts.
+- Video teams that need an explicit, reviewable decision between generation, composition, editing, and a cross-modal production plan before execution.
+- Teams building AI-assisted outbound workflows that need explicit recipient, sender, payload, schedule, and real-send approval boundaries.
+- Agents extracting public web content where hostile page instructions must remain untrusted data.
+- Security-conscious users relying on NotebookLM, YouTube, Instagram, Telegram, Loki, Vercel, or macOS packaging skills.
+- Claude Code, Cursor, Codex CLI, Gemini CLI, and Antigravity users installing from canonical or plugin distributions.
+
+### Validation
+
+- Passed canonical skill and reference validation, documentation security, warning-budget enforcement, changed-skill evidence, the complete repository suite, web-app coverage, package dry-run checks, and dependency audits.
+- Validated every generated portable manifest against the pinned official Agent Plugins 1.0 schema, every eligible package with the Codex plugin validator, and each packaged skill instance against the Agent Skills reference validator.
+- Confirmed protected `main` CI and CodeQL are green and canonical regeneration is idempotent before release preparation.
+
+### Credits
+
+- **[@pagefarms](https://github.com/pagefarms)** for `outreachagent` in [PR #1090](https://github.com/sickn33/agentic-awesome-skills/pull/1090).
+- **[@lorocopey-ocs](https://github.com/lorocopey-ocs)** for the `web-scraper` safety improvements in [PR #1092](https://github.com/sickn33/agentic-awesome-skills/pull/1092).
+- **[@BlueSkyID666](https://github.com/BlueSkyID666)** for the official-source `video-router` import in [PR #1099](https://github.com/sickn33/agentic-awesome-skills/pull/1099).
 
 ## [15.9.0] - 2026-08-04 - "Security Boundaries and Multimodal Workflows"
 
