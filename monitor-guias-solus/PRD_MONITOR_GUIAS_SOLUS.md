@@ -360,10 +360,10 @@ STATUSES = [
 - [x] **T31** — 11 testes unitários para `GuideRepository`
 - [x] **T32** — 5 testes unitários para `Services`
 - [x] **T33** — 8 testes unitários para `Models`
-- [ ] **T34** ⏳ — Testes de integração (DB + Repository + Service end-to-end)
-- [ ] **T35** ⏳ — Testes para `dialogs.py`
-- [ ] **T36** ⏳ — Configurar pytest-cov e atingir ≥80% de cobertura
-- [ ] **T37** ⏳ — Teste de smoke: inicialização da UI sem erros
+- [x] **T34** ✅ — Testes de integração (DB + Repository + Service end-to-end)
+- [x] **T35** ✅ — Testes para `dialogs.py`
+- [x] **T36** ✅ — Configurar pytest-cov e atingir ≥80% de cobertura
+- [x] **T37** ✅ — Teste de smoke: inicialização da UI sem erros
 
 ### 🔄 FASE 5 — CI/CD e Documentação (80% CONCLUÍDA)
 - [x] **T38** — GitHub Actions (`test-monitor-guias.yml`) rodando pytest

@@ -99,7 +99,7 @@ class Database:
         """Retorna todas as guias"""
         conn = self.get_connection()
         cursor = conn.cursor()
-        cursor.execute('SELECT * FROM guides ORDER BY ultima_alteracao DESC')
+        cursor.execute('SELECT * FROM guides ORDER BY ultima_alteracao DESC, id DESC')
         guides = [dict(row) for row in cursor.fetchall()]
         conn.close()
         return guides
@@ -160,7 +160,7 @@ class Database:
         cursor.execute('''
             SELECT * FROM history 
             WHERE guide_id = ?
-            ORDER BY timestamp DESC
+            ORDER BY timestamp DESC, id DESC
         ''', (guide_id,))
         history = [dict(row) for row in cursor.fetchall()]
         conn.close()

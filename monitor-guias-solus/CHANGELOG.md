@@ -5,6 +5,21 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 ---
 
+## [1.2.0] — 09/08/2026
+
+### Adicionado
+- **T34** — `tests/test_integration.py`: 17 testes de integração end-to-end cobrindo o fluxo completo Database → GuideRepository → MonitorService → HistoryService (criar, atualizar, ciência, filtros, detecção de mudanças)
+- **T35** — `tests/test_dialogs.py`: testes unitários para `NovaGuiaDialog` (campos, validação, emissão de sinal) e `HistoricoDialog` (instância, observações, helper `_eh_cor_escura`)
+- **T36** — `pytest-cov` adicionado a `requirements.txt`; `.coveragerc` configurado; cobertura de 89% atingida (≥80% exigido), com relatório `--term-missing` no CI
+- **T37** — `tests/test_smoke_ui.py`: smoke tests que verificam a inicialização sem crash de `MainWindow`, `LoginDialog`, `ConfiguracoesDialog`, `NovaGuiaDialog`, `HistoricoDialog`, `DashboardPanel`, `GuidesTable` e `FiltersPanel`
+- **T_extra** — `tests/test_utils_and_adapters.py`: testes para `SimulatedSolusAdapter`, `LGPDLogger`, `constants.py` e métodos extras do `HistoryService`
+
+### Corrigido
+- `src/database/schema.py`: ordenações `ORDER BY ultima_alteracao DESC, id DESC` e `ORDER BY timestamp DESC, id DESC` para comportamento determinístico quando múltiplos registros têm o mesmo timestamp (precisão de segundo do SQLite)
+- `pytest.ini`: removida diretiva Python docstring inválida no topo do arquivo
+
+---
+
 ## [1.1.0] — 06/08/2026
 
 ### Adicionado

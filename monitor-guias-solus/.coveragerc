@@ -1,0 +1,11 @@
+[run]
+source = src
+omit =
+    src/ui/*
+    src/main.py
+    src/services/notifier.py
+    src/services/scheduler.py
+
+[report]
+fail_under = 80
+show_missing = True
