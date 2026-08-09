@@ -8,6 +8,7 @@ const SkillDetail = lazy(() => import('./pages/SkillDetail'));
 const Workbench = lazy(() => import('./pages/Workbench'));
 const Plugins = lazy(() => import('./pages/Plugins'));
 const TopicLanding = lazy(() => import('./pages/TopicLanding'));
+const GuiaDashboard = lazy(() => import('./pages/GuiaDashboard'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const CatalogRouteProvider = lazy(() => import('./context/CatalogRouteProvider'));
 
@@ -92,6 +93,7 @@ function App(): React.ReactElement {
               </Route>
               <Route path="/plugins" element={<Plugins />} />
               <Route path="/workbench" element={<Workbench />} />
+              <Route path="/dashboard-monitor" element={<GuiaDashboard />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
