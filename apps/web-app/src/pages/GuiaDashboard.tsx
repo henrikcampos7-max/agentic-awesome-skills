@@ -21,7 +21,13 @@ import { useMemo } from 'react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import './guia-dashboard.css';
 
-const navItems = [
+interface NavItem {
+  label: string;
+  icon: typeof House;
+  active?: boolean;
+}
+
+const navItems: ReadonlyArray<NavItem> = [
   { label: 'Dashboard', icon: House, active: true },
   { label: 'Guias', icon: ClipboardText },
   { label: 'Nova Guia', icon: Plus },
@@ -29,7 +35,7 @@ const navItems = [
   { label: 'Alertas', icon: Bell },
   { label: 'Histórico', icon: ClockCounterClockwise },
   { label: 'Configurações', icon: Gear },
-] as const;
+];
 
 const metricCards = [
   {
@@ -169,7 +175,7 @@ export function GuiaDashboard(): React.ReactElement {
           </div>
 
           <nav className="guide-dashboard__nav">
-            {navItems.map(({ label, icon: ItemIcon, active }) => (
+            {navItems.map(({ label, icon: ItemIcon, active = false }) => (
               <button key={label} type="button" className={active ? 'is-active' : ''} aria-current={active ? 'page' : undefined}>
                 <ItemIcon size={18} weight={active ? 'fill' : 'regular'} />
                 <span>{label}</span>

@@ -1,6 +1,7 @@
+import { screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 import { renderWithRouter } from '../../utils/testUtils';
 import { GuiaDashboard } from '../GuiaDashboard';
-import { screen } from '@testing-library/react';
 
 describe('GuiaDashboard', () => {
   it('renders the responsive desktop dashboard structure', () => {
