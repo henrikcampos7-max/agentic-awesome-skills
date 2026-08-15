@@ -23,6 +23,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 ### Corrigido
 - Vazamento de conexões SQLite no Windows (`with conn:` não fecha conexões; agora usa `contextlib.closing` em `schema.py`), que travava os bancos de teste e acumulava dados entre execuções.
 - Ordenação de guias e histórico com timestamps de precisão de segundos (`CURRENT_TIMESTAMP`) que empatavam no mesmo segundo; `ultima_alteracao` e histórico agora usam timestamps com microssegundos.
+- CI do app (`test-monitor-guias.yml`): actions pinadas por commit SHA (exigência do repositório) e `pytest` adicionado ao `requirements.txt` — o job de testes falhava com "No module named pytest".
 
 ---
 
