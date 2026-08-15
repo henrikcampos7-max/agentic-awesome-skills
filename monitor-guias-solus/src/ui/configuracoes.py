@@ -177,7 +177,7 @@ class ConfiguracoesDialog(QDialog):
         form_user.setLabelAlignment(Qt.AlignRight)
 
         self._campos["usuario_nome"] = QLineEdit()
-        self._campos["usuario_nome"].setPlaceholderText("henrique.campos")
+        self._campos["usuario_nome"].setPlaceholderText("phenrique")
         form_user.addRow("Nome / Login:", self._campos["usuario_nome"])
 
         self._campos["usuario_unidade"] = QLineEdit()

@@ -14,7 +14,7 @@ from src.database.schema import Database
 
 # Credenciais padrão do sistema (sem backend externo, autenticação local simples)
 _USUARIOS_PADRAO = {
-    "henrique.campos": "solus@2026",
+    "phenrique": "123456",
     "admin": "admin123",
 }
 
@@ -162,7 +162,7 @@ class LoginDialog(QDialog):
         lbl_u = QLabel("Usuário")
         lbl_u.setFont(QFont("Arial", 11))
         self.campo_usuario = QLineEdit()
-        self.campo_usuario.setPlaceholderText("henrique.campos")
+        self.campo_usuario.setPlaceholderText("phenrique")
         self.campo_usuario.returnPressed.connect(self._tentar_login)
         form.addRow(lbl_u, self.campo_usuario)
 
