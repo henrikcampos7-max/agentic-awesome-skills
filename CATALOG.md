@@ -2,7 +2,7 @@
 
 Generated at: 2026-08-09T06:51:55.000Z
 
-Total skills: 2007
+Total skills: 2008
 
 ## agent-behavior (5)
 
@@ -1014,7 +1014,7 @@ Total skills: 2007
 | `mcp-tool-developer` | Build Model Context Protocol (MCP) servers and tools from scratch. Full-stack MCP development with TypeScript/Python, testing, deployment, and registry publi... | safe | demo112/yunqu-ai-skills | mcp, ai-agent, tool-development, typescript, python, llm, model-context-protocol | mcp, ai-agent, tool-development, typescript, python, llm, model-context-protocol, developer, model, context, protocol, servers |
 | `tokenwise` | Measurement-driven model router for Claude Code. Routes Haiku/Sonnet/Opus per task class, logs every routed task with real $ numbers, and A/B tests cheaper t... | critical | CodeShuX/tokenwise | model-routing, token-optimization, cost-reduction, anthropic, haiku, sonnet, opus, claude-code, ab-testing, measurement | model-routing, token-optimization, cost-reduction, anthropic, haiku, sonnet, opus, claude-code, ab-testing, measurement, tokenwise, driven |
 
-## development (173)
+## development (174)
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
@@ -1143,6 +1143,7 @@ Total skills: 2007
 | `makepad-widgets` | Version: makepad-widgets (dev branch) \| Last Updated: 2026-01-19 > > Check for updates: https://crates.io/crates/makepad-widgets | safe | community | makepad, widgets | makepad, widgets, version, dev, branch, last, updated, 2026, 01, 19, check, updates |
 | `memory-safety-patterns` | Cross-language patterns for memory-safe programming including RAII, ownership, smart pointers, and resource management. | safe | community | memory, safety | memory, safety, cross, language, safe, programming, including, raii, ownership, smart, pointers, resource |
 | `modern-javascript-patterns` | Comprehensive guide for mastering modern JavaScript (ES6+) features, functional programming patterns, and best practices for writing clean, maintainable, and... | safe | community | modern, javascript | modern, javascript, mastering, es6, features, functional, programming, writing, clean, maintainable, performant, code |
+| `monitor-guias-solus` | Guia para desenvolver e manter o Monitor de Guias Solus (app Windows Python/PySide6 de rastreio de guias de oncologia). Use ao implementar features, aplicar ... | safe | self | pyside6, python, desktop-app, design-system, sqlite, windows | pyside6, python, desktop-app, design-system, sqlite, windows, monitor, guias, solus, guia, para, desenvolver |
 | `monorepo-architect` | Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turborepo, Bazel, and Lerna for efficient multi-project devel... | safe | community | monorepo | monorepo, architect, architecture, dependency, scale, masters, nx, turborepo, bazel, lerna, efficient, multi |
 | `monorepo-management` | Build efficient, scalable monorepos that enable code sharing, consistent tooling, and atomic changes across multiple packages and applications. | safe | community | monorepo | monorepo, efficient, scalable, monorepos, enable, code, sharing, consistent, tooling, atomic, changes, multiple |
 | `multi-platform-apps-multi-platform` | Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-first architecture and parallel implementation strategies. | critical | community | multi, platform, apps | multi, platform, apps, deploy, same, feature, consistently, web, mobile, desktop, platforms, api |

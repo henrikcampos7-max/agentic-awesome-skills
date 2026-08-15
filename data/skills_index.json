@@ -29517,6 +29517,37 @@
     ]
   },
   {
+    "id": "monitor-guias-solus",
+    "path": "skills/monitor-guias-solus",
+    "category": "development",
+    "name": "monitor-guias-solus",
+    "description": "Guia para desenvolver e manter o Monitor de Guias Solus (app Windows Python/PySide6 de rastreio de guias de oncologia). Use ao implementar features, aplicar o design system Clinical Precision ou alterar UI, banco, servi\u00e7os ou testes do projeto.",
+    "risk": "safe",
+    "source": "self",
+    "date_added": "2026-08-14",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    },
+    "source_type": "self",
+    "tags": [
+      "pyside6",
+      "python",
+      "desktop-app",
+      "design-system",
+      "sqlite",
+      "windows"
+    ]
+  },
+  {
     "id": "monochromatic-ui",
     "path": "skills/design-it/monochromatic-ui",
     "category": "design-it",

@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-08-09T06:51:55.000Z",
-  "total": 2007,
+  "total": 2008,
   "skills": [
     {
       "id": "00-andruia-consultant",
@@ -35488,6 +35488,39 @@
         "digitais"
       ],
       "path": "skills/monetization/SKILL.md"
+    },
+    {
+      "id": "monitor-guias-solus",
+      "canonical_id": "monitor-guias-solus",
+      "name": "monitor-guias-solus",
+      "description": "Guia para desenvolver e manter o Monitor de Guias Solus (app Windows Python/PySide6 de rastreio de guias de oncologia). Use ao implementar features, aplicar o design system Clinical Precision ou alterar UI, banco, serviços ou testes do projeto.",
+      "category": "development",
+      "risk": "safe",
+      "source": "self",
+      "source_type": "self",
+      "tags": [
+        "pyside6",
+        "python",
+        "desktop-app",
+        "design-system",
+        "sqlite",
+        "windows"
+      ],
+      "triggers": [
+        "pyside6",
+        "python",
+        "desktop-app",
+        "design-system",
+        "sqlite",
+        "windows",
+        "monitor",
+        "guias",
+        "solus",
+        "guia",
+        "para",
+        "desenvolver"
+      ],
+      "path": "skills/monitor-guias-solus/SKILL.md"
     },
     {
       "id": "monopoly",
