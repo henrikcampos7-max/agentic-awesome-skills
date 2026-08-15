@@ -5,6 +5,27 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 ---
 
+## [Não publicado]
+
+### Adicionado
+- Agente personalizado do GitHub Copilot para finalizar e manter o Monitor de Guias Solus.
+- `AGENTS.md` local com regras de escopo, testes, Git e proteção de dados para agentes de desenvolvimento.
+- Design system **"Clinical Precision"** exportado do Google Stitch em `design/stitch/` (`code.html`, `DESIGN.md`, `screen.png`) com mapeamento de tokens em `design/README.md`.
+- Skill `skills/monitor-guias-solus` para agentes de IA implementarem mudanças aplicando o design system.
+- Agente `monitor-guias-design-system` (`.github/agents/`) para implementações de design system.
+- Agente opencode do projeto em `.opencode/agent/monitor-guias-solus.md` (design system + regras do `AGENTS.md`).
+
+### Alterado
+- Credenciais locais padrão: login `henrique.campos` -> `phenrique` e senha `solus@2026` -> `123456` (placeholders atualizados em `login.py`, `main_window.py` e `configuracoes.py`).
+- `src/ui/styles/stylesheet.py`: QSS reescrito com os tokens do design system Clinical Precision (teal `#006065`, fundo `#F7FAFA`, bordas `#E2E8F0`, fonte Inter, zebra nas tabelas, chips e cantos 4–8px).
+- `src/utils/constants.py`: `STATUS_COLORS` atualizadas para a paleta semântica do design system (verde/vermelho/âmbar/azul/laranja/cinza/púrpura/teal) com contraste AA.
+
+### Corrigido
+- Vazamento de conexões SQLite no Windows (`with conn:` não fecha conexões; agora usa `contextlib.closing` em `schema.py`), que travava os bancos de teste e acumulava dados entre execuções.
+- Ordenação de guias e histórico com timestamps de precisão de segundos (`CURRENT_TIMESTAMP`) que empatavam no mesmo segundo; `ultima_alteracao` e histórico agora usam timestamps com microssegundos.
+
+---
+
 ## [1.1.0] — 06/08/2026
 
 ### Adicionado

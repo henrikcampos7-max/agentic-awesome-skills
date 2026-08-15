@@ -16,18 +16,18 @@ STATUSES = [
     "Guia sob auditoria"
 ]
 
-# Cores para status
+# Cores para status — design system "Clinical Precision" (design/stitch/DESIGN.md)
 STATUS_COLORS = {
-    "Guia emitida / liberada": "#FFFFFF",  # Branco
-    "Guia negada": "#FF0000",  # Vermelho
-    "Guia cancelada": "#FF6B6B",  # Vermelho claro
-    "Guia pedido/aguard confirmação": "#FFD700",  # Amarelo
-    "Guia com setor de OPME": "#9932CC",  # Púrpura
-    "Sob auditoria na Unimed origem": "#87CEEB",  # Azul claro
-    "Guia parcialmente liberada": "#FFA500",  # Laranja
-    "Cancelada na Unimed origem": "#00CED1",  # Turquesa
-    "Negada na Unimed origem": "#D3D3D3",  # Cinza
-    "Guia sob auditoria": "#228B22"  # Verde escuro
+    "Guia emitida / liberada": "#15803D",  # Status verde (Autorizada/aprovada)
+    "Guia negada": "#BA1A1A",  # Status vermelho (Negada)
+    "Guia cancelada": "#E5484D",  # Vermelho claro (Cancelada)
+    "Guia pedido/aguard confirmação": "#B45309",  # Status âmbar (Pendente)
+    "Guia com setor de OPME": "#7C3AED",  # Púrpura (Em fluxo interno)
+    "Sob auditoria na Unimed origem": "#2563EB",  # Status azul (Em análise)
+    "Guia parcialmente liberada": "#EA580C",  # Status laranja (Expirada/alerta)
+    "Cancelada na Unimed origem": "#6B7280",  # Cinza médio (Fechada)
+    "Negada na Unimed origem": "#9CA3AF",  # Cinza claro (Fechada)
+    "Guia sob auditoria": "#006065"  # Teal primário (Sob auditoria)
 }
 
 # Sincronização
