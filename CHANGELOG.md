@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added a [GitHub Actions workflow for US ad and VSL research](tools/ad-research/README.md), with public examples and private workflow calls for authorized campaign metrics.
+
 ## [15.12.0] - 2026-08-09 - "Catalog Discovery and Safer Context Skills"
 
 > Upgraded the public catalog into a practical discovery dashboard, added two focused research and planning skills, and repaired unsafe or malformed context-management guidance.

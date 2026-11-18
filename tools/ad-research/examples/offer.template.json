@@ -1,0 +1,11 @@
+{
+  "product": "Nome da sua oferta",
+  "market": "US",
+  "audience": "Público da campanha",
+  "facts": ["Fato sobre a oferta que pode aparecer no roteiro"],
+  "proof_available": ["Demonstração ou prova disponível para filmar"],
+  "source_urls": [],
+  "call_to_action": "See how it works",
+  "preferred_style": "UGC com demonstração",
+  "delivery": "9:16, 1080x1920, 30 fps"
+}
